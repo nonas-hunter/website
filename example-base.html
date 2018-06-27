@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Example</title>
+    <script>
+      window.addEventListener('message', function(event) {
+        // if(event.origin.indexOf('file:///home/luke/Code/Shiffman/codeEditor.html')) {
+          console.log(event.data)
+          //WORKING CODE
+          var head= document.getElementsByTagName('head')[0];
+          var div= document.createElement('div');
+          var script1 = document.createElement('script');
+          var script2 = document.createElement('script');
+          var script3 = document.createElement('script');
+          script1.type= "text/javascript"
+          script2.type= "text/javascript"
+          script3.type= "text/javascript"
+          script1.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js";
+          script2.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.dom.js"
+          script3.src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.js"
+
+          var script = document.createElement('script');
+          var url = URL.createObjectURL(event.data);
+          script.type= "text/javascript"
+          script.src= url;
+          div.appendChild(script1);
+          div.appendChild(script2);
+          div.appendChild(script3);
+          div.appendChild(script);
+          head.appendChild(div);
+        // } else {
+        //   return;
+        // }
+      });
+    </script>
+  </head>
+  <body>
+  </body>
+</html>

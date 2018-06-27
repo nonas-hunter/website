@@ -1,0 +1,16 @@
+<div>
+  <textarea id="textAreaCode" spellcheck="false" autocomplete="off" wrap="logical" style="height:400px;width:600px;"></textarea>
+</div>
+<div>
+  <iframe frameboarder="0" id="iframe" src="{{site.url}}/example-base.html" style="height:400px;width:600px;"></iframe>
+</div>
+<div>
+  <button onclick="runLiveExample()">Run</button>
+</div>
+<script>
+function runLiveExample() {
+  var iframe = document.getElementById('iframe');
+  var file = new File([document.getElementById('textAreaCode').value], "sketch,js", {type: "text/javascript"});
+  iframe.contentWindow.postMessage(file, '*');
+}
+</script>
