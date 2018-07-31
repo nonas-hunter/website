@@ -5,14 +5,16 @@
 // Full tutorial playlist:
 // https://www.youtube.com/playlist?list=PLRqwX-V7Uu6bmMRCIoTi72aNWHo7epX4L
 
-// Code from end of video 7(7.7)
-// https://youtu.be/Gql-LxoGvXA
+// Code from end of 7.8
+// https://youtu.be/hCT0qFtLdS8
 
 // Community version:
 // https://codingtrain.github.io/ColorClassifer-TensorFlow.js
 // https://github.com/CodingTrain/ColorClassifer-TensorFlow.js
 
 let data;
+
+let model;
 
 let labelList = [
   'red-ish',
@@ -58,6 +60,32 @@ function setup() {
   xs.print();
   ys.print();
 
-  //console.log(labels);
+
+  // Building Model
+  model = tf.sequential();
+
+  // Architecture of Model
+  let hidden = tf.layers.dense({
+    units: 16,
+    activation: 'sigmoid',
+    inputDim: [3]
+  });
+  let output = tf.layers.dense({
+    units: 9,
+    activation: 'softmax'
+  });
+  model.add(hidden);
+  model.add(output);
+
+
+  // The Next Steps:
+
+  // Create an optimizer
+  // "meanSquaredError" --> "categoricalCrossEntropy"
+
+  // Compile the model
+
+  // Train the model
+
 
 }
